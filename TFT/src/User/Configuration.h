@@ -22,7 +22,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 /**
  * Default LANGUAGE
@@ -51,7 +51,7 @@
  * Note: Test audio output with the G-Code:
  * M300 S<frequency Hz> P<duration ms>
  */
-#define BUZZER_FREQUENCY_DURATION_MS 20 // Default 20
+#define BUZZER_FREQUENCY_DURATION_MS 0  // Default 20
 #define BUZZER_FREQUENCY_HZ 10000       // Default 10000, 20Hz to 60KHz
 #define BUZZER_STOP_LEVEL false
 
@@ -59,18 +59,18 @@
 // Marlin Mode Background & Font Color Options
 // Current color options from lcd.h: BLACK, BLUE, BROWN, BRRED, CYAN, GBLUE, GRAY, GREEN, MAGENTA, RED, WHITE, YELLOW
 #define ST7920_BKCOLOR BLACK
-#define ST7920_FNCOLOR YELLOW
+#define ST7920_FNCOLOR MAGENTA
 
 /**
  *  Text displayed at the top of the LCD in Marlin Mode.
  */
-//#define ST7920_BANNER_TEXT "LCD12864 Simulator"
+#define ST7920_BANNER_TEXT "droxeybot"
 
 /**
  * Run Marlin Mode fullscreen.
  * Not recommended for TFT24.
  */
-//#define ST7920_FULLSCREEN
+#define ST7920_FULLSCREEN
 
 /**
  * CLEAN MODE SWITCHING SUPPORT
@@ -79,7 +79,7 @@
  * expansion port and have it work seamlessly no matter which mode the TFT is in.
  * Only for TFT24 V1.1, TFT35 V3.0 or TFT28 V3.0
  */
-//#define CLEAN_MODE_SWITCHING_SUPPORT  // Enable CLEAN MODE SWITCHING SUPPORT
+#define CLEAN_MODE_SWITCHING_SUPPORT  // Enable CLEAN MODE SWITCHING SUPPORT
 
 /**
  * DEFAULT STARTUP KNOB LED COLOR
@@ -89,7 +89,7 @@
  * Default value is: 1 for LED_OFF
  *
 */
-#define STARTUP_KNOB_LED_COLOR 1 //LED_OFF
+#define STARTUP_KNOB_LED_COLOR 9 //LED_OFF
 
 //===========================================================================
 //============================ TFT Mode Settings ============================
@@ -114,11 +114,11 @@
 #define EXTRUDER_NUM 1    // set in 1~6
 #define FAN_NUM      1    // set in 1~6
 
-//                       PLA      PETG       ABS
-#define PREHEAT_BED      {60,      70,       100}
-#define PREHEAT_HOTEND   {200,     250,      230}
+//                       PLA    PETG/HTPLA        ABS
+#define PREHEAT_BED      {60,      60,            100}
+#define PREHEAT_HOTEND   {200,     230,           230}
 
-#define HEAT_MAX_TEMP    {150,    275,       275,       275,       275,       275,       275}    //max temperature can be set
+#define HEAT_MAX_TEMP    {150,    300,       275,       275,       275,       275,       275}    //max temperature can be set
 #define HEAT_SIGN_ID     {"B:",   "T0:",     "T1:",     "T2:",     "T3:",     "T4:",     "T5:"}
 #define HEAT_DISPLAY_ID  {"Bed",  "T0",      "T1",      "T2",      "T3",      "T4",      "T5"}
 #define HEAT_CMD         {"M140", "M104 T0", "M104 T1", "M104 T2", "M104 T3", "M104 T4", "M104 T5" };
@@ -165,7 +165,7 @@
 #ifdef AUTO_BED_LEVELING
   // Enable this will send "M500" after "G29" to store leveling value
   // and send "M420 S1" to enable leveling state after startup
-  //#define AUTO_SAVE_LOAD_LEVELING_VALUE
+  #define AUTO_SAVE_LOAD_LEVELING_VALUE
 #endif
 
 // Move to four corner points to Leveling manually (Point 1, Point 2, Point 3, Point 4)
